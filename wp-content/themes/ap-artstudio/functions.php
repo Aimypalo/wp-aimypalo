@@ -610,3 +610,10 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+// Add image sizes
+add_image_size( 'project-thumb', 600, 400, true );
+
+
+
+

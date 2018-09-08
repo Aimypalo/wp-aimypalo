@@ -199,9 +199,10 @@
 
 			$menuScrollDown.click( function( e ) {
 				e.preventDefault();
-				$( window ).scrollTo( '#primary', {
+				$( window ).scrollTo( '.site-branding', {
 					duration: 600,
-					offset: { top: menuTop - navigationOuterHeight }
+					// offset: { top: menuTop - navigationOuterHeight }
+					offset: { top: -50 }
 				});
 			});
 		}

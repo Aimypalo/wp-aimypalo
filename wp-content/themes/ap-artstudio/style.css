@@ -19,6 +19,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 5.0 Typography
 6.0 Forms
 7.0 Formatting
+	7.1 Grids
 8.0 Lists
 9.0 Tables
 10.0 Links
@@ -38,6 +39,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 17.0 Customizer
 18.0 SVGs Fallbacks
 19.0 Media Queries
+	19.1 Grid Media Queries
 20.0 Print
 --------------------------------------------------------------*/
 
@@ -400,6 +402,12 @@ template {
 .widget:after,
 .comment-meta:after {
 	clear: both;
+}
+
+.grid:after, .header:after, .main-nav .menu:after, .footer:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /*--------------------------------------------------------------
@@ -1071,6 +1079,7 @@ input[type="submit"].secondary:focus {
 
 .frm_style_formidable-style.with_frm_style legend + h3, .frm_style_formidable-style.with_frm_style h3.frm_form_title {
     font-family: 'Roboto Mono', monospace;
+    padding-top: 0;
 }
 
 .frm_style_formidable-style.with_frm_style .frm_compact .frm_dropzone.dz-clickable .dz-message, .frm_style_formidable-style.with_frm_style input[type="submit"], .frm_style_formidable-style.with_frm_style .frm_submit input[type="button"], .frm_style_formidable-style.with_frm_style .frm_submit button, .frm_form_submit_style, .frm_style_formidable-style.with_frm_style.frm_login_form input[type="submit"] {
@@ -1087,6 +1096,129 @@ hr {
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+7.1 Grids
+--------------------------------------------------------------*/
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.grid.projects {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+[class^='grid-'],
+[class*=' grid-'] {
+  padding: 20px;
+}
+
+.grid.projects [class^='grid-'],
+[class*=' grid-'] {
+  padding: 10px;
+}
+
+.grid-xs-1 {
+  width: calc( 100% / (  12 / 1 ) );
+}
+
+.offset-xs-1 {
+  margin-left: calc( 100% / (  12 / 1 ) );
+}
+
+.grid-xs-2 {
+  width: calc( 100% / (  12 / 2 ) );
+}
+
+.offset-xs-2 {
+  margin-left: calc( 100% / (  12 / 2 ) );
+}
+
+.grid-xs-3 {
+  width: calc( 100% / (  12 / 3 ) );
+}
+
+.offset-xs-3 {
+  margin-left: calc( 100% / (  12 / 3 ) );
+}
+
+.grid-xs-4 {
+  width: calc( 100% / (  12 / 4 ) );
+}
+
+.offset-xs-4 {
+  margin-left: calc( 100% / (  12 / 4 ) );
+}
+
+.grid-xs-5 {
+  width: calc( 100% / (  12 / 5 ) );
+}
+
+.offset-xs-5 {
+  margin-left: calc( 100% / (  12 / 5 ) );
+}
+
+.grid-xs-6 {
+  width: calc( 100% / (  12 / 6 ) );
+}
+
+.offset-xs-6 {
+  margin-left: calc( 100% / (  12 / 6 ) );
+}
+
+.grid-xs-7 {
+  width: calc( 100% / (  12 / 7 ) );
+}
+
+.offset-xs-7 {
+  margin-left: calc( 100% / (  12 / 7 ) );
+}
+
+.grid-xs-8 {
+  width: calc( 100% / (  12 / 8 ) );
+}
+
+.offset-xs-8 {
+  margin-left: calc( 100% / (  12 / 8 ) );
+}
+
+.grid-xs-9 {
+  width: calc( 100% / (  12 / 9 ) );
+}
+
+.offset-xs-9 {
+  margin-left: calc( 100% / (  12 / 9 ) );
+}
+
+.grid-xs-10 {
+  width: calc( 100% / (  12 / 10 ) );
+}
+
+.offset-xs-10 {
+  margin-left: calc( 100% / (  12 / 10 ) );
+}
+
+.grid-xs-11 {
+  width: calc( 100% / (  12 / 11 ) );
+}
+
+.offset-xs-11 {
+  margin-left: calc( 100% / (  12 / 11 ) );
+}
+
+.grid-xs-12 {
+  width: calc( 100% / (  12 / 12 ) );
+}
+
+.offset-xs-12 {
+  margin-left: calc( 100% / (  12 / 12 ) );
 }
 
 /*--------------------------------------------------------------
@@ -1327,7 +1459,7 @@ a:hover .nav-title,
 }
 
 .navigation-top .wrap {
-	max-width: 1000px;
+	max-width: 1600px;
 	padding: 0;
 }
 
@@ -1796,7 +1928,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 
 .twentyseventeen-front-page .site-content {
 	padding: 0;
-	min-height: 420px;
+	min-height: 480px;
 }
 
 .twentyseventeen-panel {
@@ -2317,6 +2449,21 @@ body:not(.twentyseventeen-front-page) .entry-header {
 .error404 .page-content .search-form,
 .search .page-content .search-form {
 	margin-bottom: 3em;
+}
+
+.projects .grid-item a .image-wrapper {
+	overflow: hidden;
+}
+
+.projects .grid-item a .image-wrapper img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+.projects .grid-item a:hover > .image-wrapper img {
+	transform: scale(1.05);
+	transition: all ease-in-out 0.5s;
 }
 
 /*--------------------------------------------------------------
@@ -3401,7 +3548,7 @@ p > object:only-child {
 	/* Layout */
 
 	.wrap {
-		max-width: 1000px;
+		max-width: 1600px;
 		padding-left: 3em;
 		padding-right: 3em;
 	}
@@ -3504,20 +3651,18 @@ p > object:only-child {
 	}
 
 	.navigation-top {
-		top: 220px;
-		font-size: 14px;
-		font-size: 16px;
-		left: 0;
 		position: fixed;
-		right: 0;
-		width: 100%;
+		top: 220px;
+		left: 0;
+		font-size: 16px;
+		width: 250px;
 		z-index: 3;
 		background: none;
 		border: none;
 	}
 
 	.navigation-top .wrap {
-		max-width: 1000px;
+		max-width: 1600px;
 		/* The font size is 14px here and we need 50px padding in ems */
 		padding: 0.75em 3.4166666666667em;
 	}
@@ -3548,7 +3693,6 @@ p > object:only-child {
 	}
 
 	.main-navigation {
-		width: 20%;
 		background: #111;
 	}
 
@@ -3584,17 +3728,16 @@ p > object:only-child {
 	}
 
 	.main-navigation ul ul {
-		width: 500px;
-		background: rgba(0,0,0,0.7);
+		width: 300%;
+		background: rgba(0,0,0,0.8);
 		border: 1px solid #bbb;
 		left: -999em;
 		padding: 0;
 		position: absolute;
-		top: -112px;
+		top: -150px;
 		z-index: 99999;
 		transition: all 1s ease;
-		max-height: 320px;
-		overflow: scroll;
+		max-height: 450px;
 	}
 
 	.main-navigation ul li.menu-item-has-children:before,
@@ -3676,7 +3819,7 @@ p > object:only-child {
 
 	.main-navigation ul li:hover > ul,
 	.main-navigation ul li.focus > ul {
-		left: calc(100% - 50px);
+		left: calc(100% + 50px);
 		right: auto;
 	}
 
@@ -3851,7 +3994,7 @@ p > object:only-child {
 
 	.site-content {
 		padding: 5.5em 0 0;
-		min-height: 420px;
+		min-height: 480px;
 	}
 
 	.single-post .entry-title,
@@ -4145,6 +4288,12 @@ p > object:only-child {
 	}
 }
 
+@media screen and ( min-width: 1600px ) {
+	.navigation-top {
+		left: calc((100% - 1600px) / 2);
+	}
+}
+
 @media screen and ( min-width: 67em ) {
 
 	/* Layout */
@@ -4152,6 +4301,8 @@ p > object:only-child {
 	/* Navigation */
 	.navigation-top .wrap {
 		padding: 0.75em 2em;
+		padding-left: 3em;
+		padding-right: 0.5em;
 	}
 
 	.navigation-top nav {
@@ -4215,6 +4366,495 @@ p > object:only-child {
 	.admin-bar .site-navigation-hidden.navigation-top {
 		top: 46px;
 	}
+}
+
+/*--------------------------------------------------------------
+19.1 Grid Media Queries
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 768px) {
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-1 {
+    width: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-1 {
+    margin-left: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-2 {
+    width: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-2 {
+    margin-left: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-3 {
+    width: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-3 {
+    margin-left: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-4 {
+    width: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-4 {
+    margin-left: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-5 {
+    width: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-5 {
+    margin-left: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-6 {
+    width: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-6 {
+    margin-left: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-7 {
+    width: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-7 {
+    margin-left: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-8 {
+    width: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-8 {
+    margin-left: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-9 {
+    width: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-9 {
+    margin-left: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-10 {
+    width: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-10 {
+    margin-left: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-11 {
+    width: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-11 {
+    margin-left: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 27, ../sass/partials/_grid.scss */
+  .grid-s-12 {
+    width: calc( 100% / (  12 / 12 ) );
+  }
+
+  /* line 31, ../sass/partials/_grid.scss */
+  .offset-s-12 {
+    margin-left: calc( 100% / (  12 / 12 ) );
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-1 {
+    width: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-1 {
+    margin-left: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-2 {
+    width: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-2 {
+    margin-left: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-3 {
+    width: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-3 {
+    margin-left: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-4 {
+    width: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-4 {
+    margin-left: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-5 {
+    width: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-5 {
+    margin-left: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-6 {
+    width: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-6 {
+    margin-left: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-7 {
+    width: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-7 {
+    margin-left: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-8 {
+    width: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-8 {
+    margin-left: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-9 {
+    width: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-9 {
+    margin-left: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-10 {
+    width: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-10 {
+    margin-left: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-11 {
+    width: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-11 {
+    margin-left: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 39, ../sass/partials/_grid.scss */
+  .grid-m-12 {
+    width: calc( 100% / (  12 / 12 ) );
+  }
+
+  /* line 43, ../sass/partials/_grid.scss */
+  .offset-m-12 {
+    margin-left: calc( 100% / (  12 / 12 ) );
+  }
+}
+@media screen and (min-width: 1280px) {
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-1 {
+    width: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-1 {
+    margin-left: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-2 {
+    width: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-2 {
+    margin-left: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-3 {
+    width: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-3 {
+    margin-left: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-4 {
+    width: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-4 {
+    margin-left: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-5 {
+    width: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-5 {
+    margin-left: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-6 {
+    width: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-6 {
+    margin-left: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-7 {
+    width: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-7 {
+    margin-left: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-8 {
+    width: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-8 {
+    margin-left: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-9 {
+    width: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-9 {
+    margin-left: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-10 {
+    width: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-10 {
+    margin-left: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-11 {
+    width: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-11 {
+    margin-left: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 51, ../sass/partials/_grid.scss */
+  .grid-md-12 {
+    width: calc( 100% / (  12 / 12 ) );
+  }
+
+  /* line 55, ../sass/partials/_grid.scss */
+  .offset-md-12 {
+    margin-left: calc( 100% / (  12 / 12 ) );
+  }
+}
+@media screen and (min-width: 1480px) {
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-1 {
+    width: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-1 {
+    margin-left: calc( 100% / (  12 / 1 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-2 {
+    width: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-2 {
+    margin-left: calc( 100% / (  12 / 2 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-3 {
+    width: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-3 {
+    margin-left: calc( 100% / (  12 / 3 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-4 {
+    width: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-4 {
+    margin-left: calc( 100% / (  12 / 4 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-5 {
+    width: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-5 {
+    margin-left: calc( 100% / (  12 / 5 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-6 {
+    width: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-6 {
+    margin-left: calc( 100% / (  12 / 6 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-7 {
+    width: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-7 {
+    margin-left: calc( 100% / (  12 / 7 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-8 {
+    width: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-8 {
+    margin-left: calc( 100% / (  12 / 8 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-9 {
+    width: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-9 {
+    margin-left: calc( 100% / (  12 / 9 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-10 {
+    width: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-10 {
+    margin-left: calc( 100% / (  12 / 10 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-11 {
+    width: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-11 {
+    margin-left: calc( 100% / (  12 / 11 ) );
+  }
+
+  /* line 63, ../sass/partials/_grid.scss */
+  .grid-12 {
+    width: calc( 100% / (  12 / 12 ) );
+  }
+
+  /* line 67, ../sass/partials/_grid.scss */
+  .offset-12 {
+    margin-left: calc( 100% / (  12 / 12 ) );
+  }
 }
 
 /*--------------------------------------------------------------
