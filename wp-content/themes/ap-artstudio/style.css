@@ -1456,6 +1456,7 @@ a:hover .nav-title,
 	font-size: 16px;
 	font-size: 1rem;
 	position: relative;
+	z-index: 9999;
 }
 
 .navigation-top .wrap {
@@ -1483,7 +1484,7 @@ a:hover .nav-title,
 }
 
 .main-navigation ul {
-	background: #fff;
+	background: #e5e5e5;
 	list-style: none;
 	margin: 0;
 	padding: 0 1.5em;
@@ -2459,6 +2460,7 @@ body:not(.twentyseventeen-front-page) .entry-header {
 	display: block;
 	margin: 0 auto;
 	max-width: 100%;
+	width: 100%;
 }
 
 .projects .grid-item a:hover > .image-wrapper img {
@@ -2476,6 +2478,7 @@ body:not(.twentyseventeen-front-page) .entry-header {
 
 .site-footer {
 	border-top: 1px solid #eee;
+	background-color: white;
 }
 
 .site-footer .wrap {
@@ -4365,6 +4368,16 @@ p > object:only-child {
 	.admin-bar .site-navigation-fixed.navigation-top,
 	.admin-bar .site-navigation-hidden.navigation-top {
 		top: 46px;
+	}
+}
+
+@media screen and ( max-width: 768px ) {
+	.mobile-full {
+		width: 100% !important;
+	}
+
+	.menu {
+		height: 100vh;
 	}
 }
 

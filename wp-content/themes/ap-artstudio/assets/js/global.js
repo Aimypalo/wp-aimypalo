@@ -247,4 +247,27 @@
 		$body.addClass( 'has-header-video' );
 	});
 
+
+	$(window).on( 'scroll', function(){
+	    var stickyTop = $('.navigation-top').offset().top;
+	    var x = $( window ).width();
+	    var headerHeight = $('.site-header').height();
+
+		if ( x < 768 )  {
+			if ($(window).scrollTop() >= stickyTop) {
+	            $('.navigation-top').css({position: "fixed", top: "0px", right: "0px", left: "0px"});
+	        }
+
+	        if (stickyTop < 90) {
+	        	$('.navigation-top').css({position: "relative", top: "0px"});
+	        } 
+		}
+    });
+
+
+
+
+
+
+
 })( jQuery );
